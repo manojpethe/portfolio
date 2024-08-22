@@ -1,0 +1,90 @@
+body {
+    margin:0px;
+    padding: 0px;
+    background-color: black;
+}
+
+.topnav {
+  height: 10%;
+  width: 100%;
+  background-color: white;
+  background-image: linear-gradient(to bottom right, white, lightblue);
+}
+
+.main-section {
+  height: 90%;
+  width: 100%;
+  background-color: white;
+  background-image: linear-gradient(to bottom right,lightblue, white,lightblue );
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: white;
+  padding: 0px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.brown-square {
+    padding: 2px;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    background-color: brown;
+    opacity: 75%;
+    width: 30px;
+    height: 30px;
+    transition: background-color 0.1s ease-in-out;
+    /* transition-delay: 2s; */
+}
+
+.brown-square:hover{
+    background-color: white;
+}
+
+.green-square {
+    padding: 2px;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    background-color: green;
+    opacity: 75%;
+    width: 30px;
+    height: 30px;
+    transition: background-color 0.1s ease-in-out;
+    /* transition-delay: 2s; */
+}
+
+.green-square:hover{
+    background-color: white;
+}
+
+
+
+/* 
+.divx {
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    animation: fade 12s infinite;
+  }
+  
+  @keyframes fade {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  } */
