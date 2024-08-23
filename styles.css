@@ -67,7 +67,16 @@ body {
     background-color: white;
 }
 
-
+.float{
+	position:fixed;
+	width:10%;
+	height:10%;
+	bottom:200px;
+	left:200px;
+	background-color:none;
+	color:none;
+	text-align:center;
+}
 
 /* 
 .divx {

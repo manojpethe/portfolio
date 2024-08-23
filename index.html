@@ -5,12 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <div id="fighter" class="float">
+            <img id="fightersvg" src="img/fighter-svgrepo-com.svg" width="150px" height="150px">
+        </div>
         <div class="topnav">
             <div style="display: flex; justify-items: start;">
                 <div style="padding-left: 100px;">
                     <h1 style="text-shadow: lightblue 10px 0 10px;; color: rgb(6, 85, 175); font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Manoj Pethe</h1>
                 </div>
-                </div>
+            </div>
         </div>
         <div class="main-section">
         <div id="sky1" style="position: absolute;width: 100vw; height: 10vh; background-color: none">
@@ -69,6 +72,53 @@
                 cloud2Direction = 'right';
             }
         },1000);
+
+        let aeroX = 300;
+        let aeroY = 300;
+        let aeroDirection = 'right';
+        let aeroElevation = 'up';
+        const aeroSpeed = 10;
+        const fighter = document.getElementById('fighter');
+        setInterval(()=>{
+            if(aeroDirection === 'right' && aeroElevation === 'up' ){
+                aeroX = aeroX + aeroSpeed+1;
+                aeroY = aeroY - aeroSpeed;
+                fighter.style.left = `${aeroX}px`;
+                fighter.style.top = `${aeroY}px`;
+            } else if (aeroDirection === 'right' && aeroElevation === 'down'){
+                aeroX = aeroX + aeroSpeed;
+                aeroY = aeroY + aeroSpeed+1;
+                fighter.style.left = `${aeroX}px`;
+                fighter.style.top = `${aeroY}px`;
+            } else if (aeroDirection === 'left' && aeroElevation === 'down'){
+                aeroX = aeroX - aeroSpeed;
+                aeroY = aeroY + aeroSpeed;
+                fighter.style.left = `${aeroX}px`;
+                fighter.style.top = `${aeroY}px`;
+            } else if (aeroDirection === 'left' && aeroElevation === 'up'){
+                aeroX = aeroX - aeroSpeed;
+                aeroY = aeroY - aeroSpeed;
+                fighter.style.left = `${aeroX}px`;
+                fighter.style.top = `${aeroY}px`;
+            }
+
+            if(aeroY < 0){
+                aeroElevation = 'down';
+            }
+            if(aeroX > screen.availWidth){
+                aeroDirection = 'left';
+                fighter.style.transform = "scaleX(-1)";
+            }
+            if(aeroY > screen.availHeight){
+                aeroElevation = 'up';
+            }
+            if(aeroX < 0){
+                aeroDirection = 'right';
+                fighter.style.transform = "";
+
+            }
+            // console.info(aeroX,aeroY,aeroDirection,aeroElevation);
+        },200);
         
     </script>
 </html>
