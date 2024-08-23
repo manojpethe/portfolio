@@ -53,7 +53,7 @@
             if(cloud.cloudPosition <= 0){
                 cloud.cloudDirection = 'right';
             }
-            console.info(cloud);
+            // console.info(cloud);
         }
 
         // let cloud1Position = 0;
@@ -103,27 +103,27 @@
         let aeroY = 300;
         let aeroDirection = 'right';
         let aeroElevation = 'up';
-        const aeroSpeed = 10;
+        const aeroSpeed = 5;
         const fighter = document.getElementById('fighter');
         setInterval(()=>{
             if(aeroDirection === 'right' && aeroElevation === 'up' ){
-                aeroX = aeroX + aeroSpeed+1;
-                aeroY = aeroY - aeroSpeed;
+                aeroX = aeroX + aeroSpeed;
+                aeroY = aeroY - (aeroSpeed/6);
                 fighter.style.left = `${aeroX}px`;
                 fighter.style.top = `${aeroY}px`;
             } else if (aeroDirection === 'right' && aeroElevation === 'down'){
                 aeroX = aeroX + aeroSpeed;
-                aeroY = aeroY + aeroSpeed+1;
+                aeroY = aeroY + (aeroSpeed/6);
                 fighter.style.left = `${aeroX}px`;
                 fighter.style.top = `${aeroY}px`;
             } else if (aeroDirection === 'left' && aeroElevation === 'down'){
                 aeroX = aeroX - aeroSpeed;
-                aeroY = aeroY + aeroSpeed;
+                aeroY = aeroY + (aeroSpeed/6);
                 fighter.style.left = `${aeroX}px`;
                 fighter.style.top = `${aeroY}px`;
             } else if (aeroDirection === 'left' && aeroElevation === 'up'){
                 aeroX = aeroX - aeroSpeed;
-                aeroY = aeroY - aeroSpeed;
+                aeroY = aeroY - (aeroSpeed/6);
                 fighter.style.left = `${aeroX}px`;
                 fighter.style.top = `${aeroY}px`;
             }
@@ -144,7 +144,7 @@
 
             }
             // console.info(aeroX,aeroY,aeroDirection,aeroElevation);
-        },200);
+        },100);
         
     </script>
 </html>
