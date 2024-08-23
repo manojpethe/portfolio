@@ -8,11 +8,19 @@
         <div class="topnav">
             <div style="display: flex; justify-items: start;">
                 <div style="padding-left: 100px;">
-                    <h1 style="color: rgb(6, 85, 175); font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Manoj Pethe</h1>
+                    <h1 style="text-shadow: lightblue 10px 0 10px;; color: rgb(6, 85, 175); font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Manoj Pethe</h1>
                 </div>
                 </div>
         </div>
         <div class="main-section">
+        <div id="sky1" style="position: absolute;width: 100vw; height: 10vh; background-color: none">
+            <div id="cloud1" style="position: relative; left: 10px; background-color: none; height: 100%; width: 10%; ">
+            <img src="img/cloud.svg" width="100%" height="100%">
+            </div>
+            <div id="cloud2" style="position: relative; top:-30px; left: 10px; background-color: none; height: 100%; width: 10%; ">
+            <img src="img/cloud.svg" width="100%" height="100%">
+            </div>
+        </div>
 
         </div>
         <!-- <div class="grid-container">
@@ -21,4 +29,46 @@
             <div class="grid-item">column3</div>
         </div> -->
     </body>
+    <script>
+        let cloud1Position = 0;
+        let cloud1Speed = 25;
+        let cloud1Direction = 'right';
+        const cloud1 = document.getElementById('cloud1');
+        setInterval(()=>{
+            if(cloud1Direction === 'right'){
+                cloud1Position = cloud1Position + cloud1Speed;
+            } else if(cloud1Direction === 'left'){
+                cloud1Position = cloud1Position - cloud1Speed;
+            }
+            cloud1.style.left = `${cloud1Position}px`;
+            // console.log(cloud1Position, screen.availHeight);
+            if(cloud1Position > screen.availHeight){
+                cloud1Direction = 'left';
+            }
+            if(cloud1Position <= 0){
+                cloud1Direction = 'right';
+            }
+        },1000);
+
+        let cloud2Position = 100;
+        let cloud2Speed = 15;
+        let cloud2Direction = 'right';
+        const cloud2 = document.getElementById('cloud2');
+        setInterval(()=>{
+            if(cloud2Direction === 'right'){
+                cloud2Position = cloud2Position + cloud2Speed;
+            } else if(cloud2Direction === 'left'){
+                cloud2Position = cloud2Position - cloud2Speed;
+            }
+            cloud2.style.left = `${cloud2Position}px`;
+            // console.log(cloud1Position, screen.availHeight);
+            if(cloud2Position > screen.availHeight){
+                cloud2Direction = 'left';
+            }
+            if(cloud2Position <= 0){
+                cloud2Direction = 'right';
+            }
+        },1000);
+        
+    </script>
 </html>
