@@ -16,18 +16,18 @@
             </div>
         </div>
         <div class="main-section">
-        <div id="sky1" style="position: absolute;width: 100vw; height: 10vh; background-color: none">
+        <div id="sky1" class="cloud-float" style="width: 100vw; height: 10vh; background-color: none">
             <div id="cloud1" style="position: relative; left: 10px; background-color: none; height: 100%; width: 10%; ">
-                <img src="img/cloud.svg" width="100%" height="100%">
+                <img src="img/cloud.svg" width="200px" height="100%">
             </div>
             <div id="cloud2" style="position: relative; top:-30px; left: 10px; background-color: none; height: 100%; width: 10%; ">
-                <img src="img/cloud.svg" width="100%" height="100%">
+                <img src="img/cloud.svg" width="200px" height="100%">
             </div>
             <div id="cloud3" style="position: relative; top:-20px; left: 10px; background-color: none; height: 100%; width: 10%; ">
-                <img src="img/cloud.svg" width="100%" height="100%">
+                <img src="img/cloud.svg" width="200px" height="100%">
             </div>
             <div id="cloud4" style="position: relative; top:-80px; left: 10px; background-color: none; height: 100%; width: 10%; ">
-                <img src="img/cloud.svg" width="100%" height="100%">
+                <img src="img/cloud.svg" width="200px" height="100%">
             </div>
         </div>
 
@@ -47,24 +47,14 @@
                 cloud.cloudPosition = cloud.cloudPosition - cloud.cloudSpeed;
             }
             cloud.cloudElement.style.left = `${cloud.cloudPosition}px`;
-            if(cloud.cloudPosition > (screen.availWidth-500)){
+            if(cloud.cloudPosition > (screen.availWidth+300)){
                 cloud.cloudDirection = 'left';
             }
-            if(cloud.cloudPosition <= 0){
+            if(cloud.cloudPosition <= -300){
                 cloud.cloudDirection = 'right';
             }
             // console.info(cloud);
         }
-
-        // let cloud1Position = 0;
-        // let cloud1Speed = 25;
-        // let cloud1Direction = 'right';
-        // const cloud1 = document.getElementById('cloud1');
-
-        // let cloud2Position = 100;
-        // let cloud2Speed = 15;
-        // let cloud2Direction = 'right';
-        // const cloud2 = document.getElementById('cloud2');
 
         const myCloud1 = { 
             cloudPosition: 0,
