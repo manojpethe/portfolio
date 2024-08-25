@@ -155,53 +155,6 @@
             flyJet(myJet1);
         },100)
 
-        // let aeroX = 300;
-        // let aeroY = 300;
-        // let aeroDirection = 'right';
-        // let aeroElevation = 'up';
-        // const aeroSpeed = 5;
-        // const fighter = document.getElementById('fighter');
-        // setInterval(()=>{
-        //     if(aeroDirection === 'right' && aeroElevation === 'up' ){
-        //         aeroX = aeroX + aeroSpeed;
-        //         aeroY = aeroY - (aeroSpeed/6);
-        //         fighter.style.left = `${aeroX}px`;
-        //         fighter.style.top = `${aeroY}px`;
-        //     } else if (aeroDirection === 'right' && aeroElevation === 'down'){
-        //         aeroX = aeroX + aeroSpeed;
-        //         aeroY = aeroY + (aeroSpeed/6);
-        //         fighter.style.left = `${aeroX}px`;
-        //         fighter.style.top = `${aeroY}px`;
-        //     } else if (aeroDirection === 'left' && aeroElevation === 'down'){
-        //         aeroX = aeroX - aeroSpeed;
-        //         aeroY = aeroY + (aeroSpeed/6);
-        //         fighter.style.left = `${aeroX}px`;
-        //         fighter.style.top = `${aeroY}px`;
-        //     } else if (aeroDirection === 'left' && aeroElevation === 'up'){
-        //         aeroX = aeroX - aeroSpeed;
-        //         aeroY = aeroY - (aeroSpeed/6);
-        //         fighter.style.left = `${aeroX}px`;
-        //         fighter.style.top = `${aeroY}px`;
-        //     }
-
-        //     if(aeroY < 0){
-        //         aeroElevation = 'down';
-        //     }
-        //     if(aeroX > screen.availWidth){
-        //         aeroDirection = 'left';
-        //         fighter.style.transform = "scaleX(-1)";
-        //     }
-        //     if(aeroY > screen.availHeight){
-        //         aeroElevation = 'up';
-        //     }
-        //     if(aeroX < 0){
-        //         aeroDirection = 'right';
-        //         fighter.style.transform = "";
-
-        //     }
-        //     // console.info(aeroX,aeroY,aeroDirection,aeroElevation);
-        // },100);
-
         const divCloud1 = document.getElementById('cloud1');
         divCloud1.addEventListener('click',event=>{
             showThunder(event.screenX,event.screenY);
@@ -251,6 +204,7 @@
                 parachute.style.cssText = `position: fixed; left: ${x}px; top:${y}px;`;
                 if(y>screen.availHeight){
                     console.log("parachute out of screen");
+                    parachute.remove();
                     clearInterval(intervalId);
                 }
             },myInterval);
