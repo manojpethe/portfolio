@@ -8,6 +8,9 @@
         <div id="fighter1" class="float">
             <img id="fightersvg" src="img/fighter-svgrepo-com.svg" width="150px" height="150px">
         </div>
+        <div id="iron-man" class="float">
+            <img id="iron-man" src="img/iron-man.png" width="150px">
+        </div>
         <div id="thunder" class="thunder" style="opacity: 0; z-index: 999;">
             <img src="img/lightning.svg" width="100px" height="200px">
         </div>
@@ -111,6 +114,15 @@
             jetElement : document.getElementById('fighter1'),
         }
 
+        const myJet2 = {
+            aeroX: 600,
+            aeroY: 600,
+            aeroDirection: 'right',
+            aeroElevation: 'up',
+            aeroSpeed: 7,
+            jetElement : document.getElementById('iron-man'),
+        }
+
         const flyJet=(jet)=>{
             if(jet.aeroDirection === 'right' && jet.aeroElevation === 'up' ){
                 jet.aeroX = jet.aeroX + jet.aeroSpeed;
@@ -153,6 +165,7 @@
 
         setInterval(()=>{
             flyJet(myJet1);
+            flyJet(myJet2);
         },100)
 
         const divCloud1 = document.getElementById('cloud1');
@@ -187,6 +200,11 @@
         fighter1.addEventListener('click',event=>{
             para(event.screenX,event.screenY);
         })
+
+        // const fighter2 = document.getElementById('fighter2');
+        // fighter2.addEventListener('click',event=>{
+        //     para(event.screenX,event.screenY);
+        // })
 
         const para =(x,y)=>{
             // console.info("para",x,y);
