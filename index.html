@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div id="fighter" class="float">
+        <div id="fighter1" class="float">
             <img id="fightersvg" src="img/fighter-svgrepo-com.svg" width="150px" height="150px">
         </div>
         <div id="thunder" class="thunder" style="opacity: 0; z-index: 999;">
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="main-section">
+        <div id="main-section" class="main-section">
 
         <div id="sky1" class="cloud-float" style="width: 100vw; height: 10vh; background-color: none">
             <div id="cloud1" style="position: relative; left: 10px; background-color: none; height: 100%; width: 10%; ">
@@ -36,6 +36,8 @@
             </div>
 
         </div>
+        <div id="parachute-container">
+        </div>
 
         </div>
         <!-- <div class="grid-container">
@@ -45,10 +47,6 @@
         </div> -->
     </body>
     <script>
-
-        const thunder = (clickedCloud)=>{
-            console.log(clickedCloud, clickedCloud.cloudPosition,clickedCloud.cloudElement.style);
-        }
 
         const slideCloud=(cloud)=>{
             if(cloud.cloudDirection === 'right'){
@@ -103,52 +101,106 @@
             slideCloud(myCloud4);
         },250);
 
-        let aeroX = 300;
-        let aeroY = 300;
-        let aeroDirection = 'right';
-        let aeroElevation = 'up';
-        const aeroSpeed = 5;
-        const fighter = document.getElementById('fighter');
+
+        const myJet1 = {
+            aeroX: 300,
+            aeroY: 300,
+            aeroDirection: 'right',
+            aeroElevation: 'up',
+            aeroSpeed: 5,
+            jetElement : document.getElementById('fighter1'),
+        }
+
+        const flyJet=(jet)=>{
+            if(jet.aeroDirection === 'right' && jet.aeroElevation === 'up' ){
+                jet.aeroX = jet.aeroX + jet.aeroSpeed;
+                jet.aeroY = jet.aeroY - (jet.aeroSpeed/6);
+                jet.jetElement.style.left = `${jet.aeroX}px`;
+                jet.jetElement.style.top = `${jet.aeroY}px`;
+            } else if (jet.aeroDirection === 'right' && jet.aeroElevation === 'down'){
+                jet.aeroX = jet.aeroX + jet.aeroSpeed;
+                jet.aeroY = jet.aeroY + (jet.aeroSpeed/6);
+                jet.jetElement.style.left = `${jet.aeroX}px`;
+                jet.jetElement.style.top = `${jet.aeroY}px`;
+            } else if (jet.aeroDirection === 'left' && jet.aeroElevation === 'down'){
+                jet.aeroX = jet.aeroX - jet.aeroSpeed;
+                jet.aeroY = jet.aeroY + (jet.aeroSpeed/6);
+                jet.jetElement.style.left = `${jet.aeroX}px`;
+                jet.jetElement.style.top = `${jet.aeroY}px`;
+            } else if (jet.aeroDirection === 'left' && jet.aeroElevation === 'up'){
+                jet.aeroX = jet.aeroX - jet.aeroSpeed;
+                jet.aeroY = jet.aeroY - (jet.aeroSpeed/6);
+                jet.jetElement.style.left = `${jet.aeroX}px`;
+                jet.jetElement.style.top = `${jet.aeroY}px`;
+            }
+
+            if(jet.aeroY < 0){
+                jet.aeroElevation = 'down';
+            }
+            if(jet.aeroX > screen.availWidth){
+                jet.aeroDirection = 'left';
+                jet.jetElement.style.transform = "scaleX(-1)";
+            }
+            if(jet.aeroY > screen.availHeight){
+                jet.aeroElevation = 'up';
+            }
+            if(jet.aeroX < 0){
+                jet.aeroDirection = 'right';
+                jet.jetElement.style.transform = "";
+
+            }
+        }
+
         setInterval(()=>{
-            if(aeroDirection === 'right' && aeroElevation === 'up' ){
-                aeroX = aeroX + aeroSpeed;
-                aeroY = aeroY - (aeroSpeed/6);
-                fighter.style.left = `${aeroX}px`;
-                fighter.style.top = `${aeroY}px`;
-            } else if (aeroDirection === 'right' && aeroElevation === 'down'){
-                aeroX = aeroX + aeroSpeed;
-                aeroY = aeroY + (aeroSpeed/6);
-                fighter.style.left = `${aeroX}px`;
-                fighter.style.top = `${aeroY}px`;
-            } else if (aeroDirection === 'left' && aeroElevation === 'down'){
-                aeroX = aeroX - aeroSpeed;
-                aeroY = aeroY + (aeroSpeed/6);
-                fighter.style.left = `${aeroX}px`;
-                fighter.style.top = `${aeroY}px`;
-            } else if (aeroDirection === 'left' && aeroElevation === 'up'){
-                aeroX = aeroX - aeroSpeed;
-                aeroY = aeroY - (aeroSpeed/6);
-                fighter.style.left = `${aeroX}px`;
-                fighter.style.top = `${aeroY}px`;
-            }
+            flyJet(myJet1);
+        },100)
 
-            if(aeroY < 0){
-                aeroElevation = 'down';
-            }
-            if(aeroX > screen.availWidth){
-                aeroDirection = 'left';
-                fighter.style.transform = "scaleX(-1)";
-            }
-            if(aeroY > screen.availHeight){
-                aeroElevation = 'up';
-            }
-            if(aeroX < 0){
-                aeroDirection = 'right';
-                fighter.style.transform = "";
+        // let aeroX = 300;
+        // let aeroY = 300;
+        // let aeroDirection = 'right';
+        // let aeroElevation = 'up';
+        // const aeroSpeed = 5;
+        // const fighter = document.getElementById('fighter');
+        // setInterval(()=>{
+        //     if(aeroDirection === 'right' && aeroElevation === 'up' ){
+        //         aeroX = aeroX + aeroSpeed;
+        //         aeroY = aeroY - (aeroSpeed/6);
+        //         fighter.style.left = `${aeroX}px`;
+        //         fighter.style.top = `${aeroY}px`;
+        //     } else if (aeroDirection === 'right' && aeroElevation === 'down'){
+        //         aeroX = aeroX + aeroSpeed;
+        //         aeroY = aeroY + (aeroSpeed/6);
+        //         fighter.style.left = `${aeroX}px`;
+        //         fighter.style.top = `${aeroY}px`;
+        //     } else if (aeroDirection === 'left' && aeroElevation === 'down'){
+        //         aeroX = aeroX - aeroSpeed;
+        //         aeroY = aeroY + (aeroSpeed/6);
+        //         fighter.style.left = `${aeroX}px`;
+        //         fighter.style.top = `${aeroY}px`;
+        //     } else if (aeroDirection === 'left' && aeroElevation === 'up'){
+        //         aeroX = aeroX - aeroSpeed;
+        //         aeroY = aeroY - (aeroSpeed/6);
+        //         fighter.style.left = `${aeroX}px`;
+        //         fighter.style.top = `${aeroY}px`;
+        //     }
 
-            }
-            // console.info(aeroX,aeroY,aeroDirection,aeroElevation);
-        },100);
+        //     if(aeroY < 0){
+        //         aeroElevation = 'down';
+        //     }
+        //     if(aeroX > screen.availWidth){
+        //         aeroDirection = 'left';
+        //         fighter.style.transform = "scaleX(-1)";
+        //     }
+        //     if(aeroY > screen.availHeight){
+        //         aeroElevation = 'up';
+        //     }
+        //     if(aeroX < 0){
+        //         aeroDirection = 'right';
+        //         fighter.style.transform = "";
+
+        //     }
+        //     // console.info(aeroX,aeroY,aeroDirection,aeroElevation);
+        // },100);
 
         const divCloud1 = document.getElementById('cloud1');
         divCloud1.addEventListener('click',event=>{
@@ -176,6 +228,33 @@
             setTimeout(()=>{
                 thunder.style.cssText = 'opacity: 0;'
             },250)
+        }
+
+        const fighter1 = document.getElementById('fighter1');
+        fighter1.addEventListener('click',event=>{
+            para(event.screenX,event.screenY);
+        })
+
+        const para =(x,y)=>{
+            // console.info("para",x,y);
+            const parachute = document.createElement('img');
+            parachute.src = 'img/parachute.svg';
+            parachute.width = '100';
+            parachute.style.cssText = `position: fixed; left: ${x}px; top:${y}px;`
+            const container = document.getElementById('main-section');
+            container.appendChild(parachute);
+            // console.log(container);
+            let myInterval = 1000;
+            let intervalId = setInterval(()=>{
+                // console.log('location of parachute:',x,y,screen.availHeight);
+                y = y + 50;
+                parachute.style.cssText = `position: fixed; left: ${x}px; top:${y}px;`;
+                if(y>screen.availHeight){
+                    console.log("parachute out of screen");
+                    clearInterval(intervalId);
+                }
+            },myInterval);
+
         }
         
     </script>
