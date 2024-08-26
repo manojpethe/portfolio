@@ -39,7 +39,62 @@
             </div>
 
         </div>
-        <div id="parachute-container">
+        <div id="chalk-board" class="chalk-board" draggable="true">
+            <div class="board">
+                <div class="heading">Hobby projects</div>
+                <div class="table">
+                    <div class="header-row">
+                      <div class="header-cell" style="min-width: 60%;">Name</div>
+                      <div class="header-cell">Link</div>
+                      <div class="header-cell">Year</div>
+                    </div>
+                    <div class="data-row">
+                      <div class="data-cell" style="min-width: 60%;">
+                        <u>Market Place: B2C App</u>
+                        <br>
+                         <u>Featurs:</u>
+                         Responsive, Multi tenant, Order Management & Invoice generation
+                        <br>
+                         <u>Techstack:</u>
+                         Python Flask, SQLAlchemy ORM, Vue.js, Materialize CSS, SQLite
+                        <br>
+                      </div>
+                      <div class="data-cell">
+                        <a target="_blank" href="https://github.com/manojpethe/marketplace">Github Repo</a>
+                      </div>
+                      <div class="data-cell">2021</div>
+                    </div>
+                    <div class="data-row">
+                        <div class="data-cell"  style="min-width: 60%;">
+                          <u>Matrimony App</u>
+                          <br>
+                           <u>Featurs:</u>
+                           Responsive, Google Signin, Chat/Personal Messaging
+                          <br>
+                           <u>Techstack:</u>
+                           Express JS, React, Prime Flex CSS(Primereact), Sequelize ORM
+                          <br>
+                        </div>
+                        <div class="data-cell"> 
+                            <a target="_blank" href="https://github.com/manojpethe/freeSocial">Github Repo</a> 
+                        </div>
+                        <div class="data-cell">2023</div>
+                      </div>
+                    </div>
+                    <div class="heading">
+                        Tech Stack<br>
+                    <div style="background-color: white; border-radius: 10px ;">
+                        <img src="img/nextjs.svg" width="50px">
+                        <img src="img/reactjs.svg" width="50px">
+                        <img src="img/angular.svg" width="50px">
+                        <img src="img/vuejs.svg" width="50px">
+                        <img src="img/flask.svg" height="50px">
+                        <img src="img/expressjs.webp" width="100px">
+                        <img src="img/postgresql.svg" width="50px">
+                    </div>
+                    </div>
+
+            </div>
         </div>
 
         </div>
@@ -114,7 +169,7 @@
             jetElement : document.getElementById('fighter1'),
         }
 
-        const myJet2 = {
+        const ironMan = {
             aeroX: 600,
             aeroY: 600,
             aeroDirection: 'right',
@@ -165,7 +220,7 @@
 
         setInterval(()=>{
             flyJet(myJet1);
-            flyJet(myJet2);
+            flyJet(ironMan);
         },100)
 
         const divCloud1 = document.getElementById('cloud1');
@@ -188,6 +243,53 @@
             showThunder(event.screenX,event.screenY);
         })
 
+        const chalkBoard = document.getElementById('chalk-board');
+
+        chalkBoard.addEventListener('click',event=>{
+            console.log('you clicked chalk board',event);
+            console.log(chalkBoard.style);
+            // chalkBoard.style.left = '500px'
+        });
+        var chalkBoardX = 50;
+        var chalkBoardY = 500;
+
+        chalkBoard.style.left = `${chalkBoardX}px`;
+        chalkBoard.style.top = `${chalkBoardY}px`;
+        chalkBoard.style.zIndex = 0;
+        divCloud1.style.zIndex = 5;
+        divCloud2.style.zIndex = 5;
+        divCloud3.style.zIndex = 10;
+        divCloud4.style.zIndex = 10;
+
+        chalkBoard.addEventListener('dragstart', (event) => {
+            // Store the starting coordinates
+            const startX = event.clientX;
+            const startY = event.clientY;
+
+            // Store the coordinates in a global variable or data structure
+            window.dragData = { startX, startY };
+        });
+
+        chalkBoard.addEventListener('dragend', (event) => {
+            // Retrieve the stored coordinates
+            const { startX, startY } = window.dragData;
+
+            // Calculate the distance dragged
+            const distanceX = event.clientX - startX;
+            const distanceY = event.clientY - startY;
+
+            // Log the starting and ending positions
+            // console.log('Starting position:', startX, startY);
+            // console.log('Ending position:', event.clientX, event.clientY);
+            // console.log('Distance dragged:', distanceX, distanceY);
+            // console.log("board position:",chalkBoard.style.cssText,chalkBoard.style.left, chalkBoard.style.top);
+            chalkBoardX = chalkBoardX + distanceX;
+            chalkBoardY = chalkBoardY + distanceY;
+            // console.log(chalkBoardX,distanceX,)
+            chalkBoard.style.cssText = `left: ${chalkBoardX}px; top: ${chalkBoardY}px;`
+        });
+
+
         const showThunder=(x,y)=>{
             const thunder = document.getElementById('thunder');
             thunder.style.cssText = `opacity: 1; left: ${x-50}px; top:${y}px;`
@@ -201,10 +303,10 @@
             para(event.screenX,event.screenY);
         })
 
-        // const fighter2 = document.getElementById('fighter2');
-        // fighter2.addEventListener('click',event=>{
-        //     para(event.screenX,event.screenY);
-        // })
+        fighter1.style.zIndex = 10;
+        const ironManElement = document.getElementById('iron-man');
+        ironManElement.style.zIndex = 10;
+
 
         const para =(x,y)=>{
             // console.info("para",x,y);

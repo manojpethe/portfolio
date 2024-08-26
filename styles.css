@@ -102,6 +102,51 @@ body {
 	text-align:center;
 }
 
+.chalk-board {
+  position:fixed;
+  left: 1%;
+  top: 50%;
+  width:40%;
+	height:60%;
+}
+
+.board {
+	background-color:darkgreen;
+  border: 20px #652a08 solid;
+	color:white;
+	text-align:center;
+  cursor: pointer;
+  overflow: auto;
+  padding: 10px;
+}
+
+.heading {
+  font-family: cursive; 
+  font-size: larger;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.header-row, .data-row {
+  display: flex;
+}
+
+.header-cell, .data-cell {
+  border: 1px solid white;
+  padding: 8px;
+  flex: 1;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header-cell {
+  background-color: none;
+  font-weight: bold;
+  font-family: cursive;
+}
+
 /* 
 .divx {
     width: 200px;
