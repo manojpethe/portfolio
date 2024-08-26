@@ -16,6 +16,7 @@ body {
   width: 100%;
   background-color: white;
   background-image: linear-gradient(to bottom right,lightblue, white,lightblue );
+  z-index: 15;
 }
 
 .grid-container {

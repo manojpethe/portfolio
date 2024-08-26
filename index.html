@@ -257,7 +257,7 @@
 
         // chalkBoard.style.left = `${chalkBoardX}px`;
         chalkBoard.style.top = `${chalkBoardY}px`;
-        chalkBoard.style.zIndex = 1;
+        chalkBoard.style.zIndex = 0;
         // divCloud1.style.zIndex = 10;
         // divCloud2.style.zIndex = 10;
         // divCloud3.style.zIndex = 10;
@@ -323,7 +323,8 @@
             let intervalId = setInterval(()=>{
                 // console.log('location of parachute:',x,y,screen.availHeight);
                 y = y + 50;
-                parachute.style.cssText = `position: fixed; left: ${x}px; top:${y}px;`;
+                // parachute.style.zIndex = 100;
+                parachute.style.cssText = `z-index:100; position: fixed; left: ${x}px; top:${y}px;`;
                 if(y>screen.availHeight){
                     console.log("parachute out of screen");
                     parachute.remove();
