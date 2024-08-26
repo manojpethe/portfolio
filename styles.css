@@ -120,7 +120,6 @@ body {
 	color:rgb(87, 87, 87);
 	text-align:center;
   cursor: pointer;
-  overflow: auto;
   padding: 10px;
   overflow: auto;
 }
@@ -131,9 +130,10 @@ body {
     left: 1%;
     top: 20%;
     width:95%;
-    height:60%;
+    height:80%;
   }
   .board {
+    height: 100%;
     background-color:rgb(236, 240, 236);
     border: 5px #ddc08e solid;
     color:rgb(87, 87, 87);
