@@ -11,7 +11,7 @@
         <div id="iron-man" class="float">
             <img id="iron-man" src="img/iron-man.png" width="150px">
         </div>
-        <div id="thunder" class="thunder" style="opacity: 0; z-index: 999;">
+        <div id="thunder" class="thunder" style="opacity: 0;">
             <img src="img/lightning.svg" width="100px" height="200px">
         </div>
         <div class="topnav">
@@ -45,8 +45,8 @@
                 <div class="table">
                     <div class="header-row">
                       <div class="header-cell" style="min-width: 60%;">Name</div>
-                      <div class="header-cell">Link</div>
-                      <div class="header-cell">Year</div>
+                      <div class="header-cell" style="min-width: 20%;">Link</div>
+                      <!-- <div class="header-cell" style="max-width: 8%;">Year</div> -->
                     </div>
                     <div class="data-row">
                       <div class="data-cell" style="min-width: 60%;">
@@ -59,10 +59,11 @@
                          Python Flask, SQLAlchemy ORM, Vue.js, Materialize CSS, SQLite
                         <br>
                       </div>
-                      <div class="data-cell">
+                      <div class="data-cell" style="min-width: 20%;">
                         <a target="_blank" href="https://github.com/manojpethe/marketplace">Github Repo</a>
+                        <p> Year 2021 </p>
                       </div>
-                      <div class="data-cell">2021</div>
+                      <!-- <div class="data-cell" style="max-width: 8%;">2021</div> -->
                     </div>
                     <div class="data-row">
                         <div class="data-cell"  style="min-width: 60%;">
@@ -75,10 +76,11 @@
                            Express JS, React, Prime Flex CSS(Primereact), Sequelize ORM
                           <br>
                         </div>
-                        <div class="data-cell"> 
-                            <a target="_blank" href="https://github.com/manojpethe/freeSocial">Github Repo</a> 
+                        <div class="data-cell" style="min-width: 20%;"> 
+                            <a target="_blank" href="https://github.com/manojpethe/freeSocial">Github Repo</a>
+                            <p> Year 2023</p> 
                         </div>
-                        <div class="data-cell">2023</div>
+                        <!-- <div class="data-cell" style="max-width: 8%;">2023</div> -->
                       </div>
                     </div>
                     <div class="heading">
@@ -250,14 +252,14 @@
             console.log(chalkBoard.style);
             // chalkBoard.style.left = '500px'
         });
-        var chalkBoardX = 50;
-        var chalkBoardY = 500;
+        var chalkBoardX = 10;
+        var chalkBoardY = 80;
 
         chalkBoard.style.left = `${chalkBoardX}px`;
         chalkBoard.style.top = `${chalkBoardY}px`;
         chalkBoard.style.zIndex = 0;
-        divCloud1.style.zIndex = 5;
-        divCloud2.style.zIndex = 5;
+        divCloud1.style.zIndex = 10;
+        divCloud2.style.zIndex = 10;
         divCloud3.style.zIndex = 10;
         divCloud4.style.zIndex = 10;
 
