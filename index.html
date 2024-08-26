@@ -252,16 +252,16 @@
             console.log(chalkBoard.style);
             // chalkBoard.style.left = '500px'
         });
-        var chalkBoardX = 10;
+        var chalkBoardX = screen.availWidth * 30 / 100 ;
         var chalkBoardY = 80;
 
-        chalkBoard.style.left = `${chalkBoardX}px`;
+        // chalkBoard.style.left = `${chalkBoardX}px`;
         chalkBoard.style.top = `${chalkBoardY}px`;
-        chalkBoard.style.zIndex = 0;
-        divCloud1.style.zIndex = 10;
-        divCloud2.style.zIndex = 10;
-        divCloud3.style.zIndex = 10;
-        divCloud4.style.zIndex = 10;
+        chalkBoard.style.zIndex = 1;
+        // divCloud1.style.zIndex = 10;
+        // divCloud2.style.zIndex = 10;
+        // divCloud3.style.zIndex = 10;
+        // divCloud4.style.zIndex = 10;
 
         chalkBoard.addEventListener('dragstart', (event) => {
             // Store the starting coordinates

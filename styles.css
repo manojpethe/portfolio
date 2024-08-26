@@ -77,7 +77,7 @@ body {
 	color:none;
 	text-align:center;
   cursor: pointer;
-  z-index: 15;
+  z-index: 0;
 }
 
 .cloud-float{
@@ -90,7 +90,7 @@ body {
 	color:none;
 	text-align:center;
   cursor: pointer;
-  z-index: 15;
+  z-index: 0;
 }
 
 .thunder{
